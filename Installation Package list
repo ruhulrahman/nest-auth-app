@@ -37,3 +37,6 @@ npm install @nestjs/platform-express multer
 //Leverage cookies or Redis for session management. For simplicity, we'll use cookies.
 npm install cookie-parser
 
+//Validation
+npm install class-validator
+

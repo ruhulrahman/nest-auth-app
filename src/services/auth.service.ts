@@ -1,4 +1,4 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { ConflictException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as bcrypt from 'bcrypt';
@@ -13,13 +13,28 @@ export class AuthService {
     private readonly jwtService: JwtService
   ) {}
 
-  async register(username: string, password: string): Promise<User> {
+  // async register(username: string, password: string): Promise<User> {
+  //   const hashedPassword = await bcrypt.hash(password, 10);
+  //   const user = this.userRepository.create({
+  //     username,
+  //     password: hashedPassword,
+  //   });
+  //   return this.userRepository.save(user);
+  // }
+
+  async register(username: string, password: string): Promise<void> {
+    const existingUser = await this.userRepository.findOne({ where: { username } });
+    if (existingUser) {
+      throw new ConflictException('Username already exists');
+    }
+
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = this.userRepository.create({
+    const newUser = this.userRepository.create({
       username,
       password: hashedPassword,
     });
-    return this.userRepository.save(user);
+
+    await this.userRepository.save(newUser);
   }
 
   async login(username: string, password: string): Promise<string> {
