@@ -1,0 +1,39 @@
+//Setup NestJS Project
+nest new nest-auth-app
+
+//Install Dependencies
+npm install @nestjs/passport @nestjs/jwt passport-jwt bcrypt passport passport-local
+npm install --save-dev @types/passport-jwt @types/passport-local
+npm install @nestjs/typeorm typeorm mysql @nestjs/config multer
+
+//Install MySQL
+npm install mysql2
+
+//Authentication with JWT
+nest generate module auth
+nest generate service auth
+nest generate controller auth
+
+//OAuth2 Authentication
+nest generate module oauth2
+nest generate service oauth2
+nest generate controller oauth2
+
+npm install passport-google-oauth20
+npm install --save-dev @types/passport-google-oauth20
+
+//CRUD for Posts and Designations
+nest generate module posts
+nest generate service posts
+nest generate controller posts
+nest generate module designations
+nest generate service designations
+nest generate controller designations
+
+//File Upload
+npm install @nestjs/platform-express multer
+
+//Session Management
+//Leverage cookies or Redis for session management. For simplicity, we'll use cookies.
+npm install cookie-parser
+
