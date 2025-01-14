@@ -9,7 +9,7 @@ import { AuthService } from '../services/auth.service';
   imports: [
     TypeOrmModule.forFeature([User]), // Register the User entity
     JwtModule.register({
-      secret: process.env.JWT_SECRET, // Replace with a secure secret
+      secret: 'yourSecretKey', // Replace with a secure secret
       signOptions: { expiresIn: '1h' }, // Optional: Token expiration time
     }),
   ],

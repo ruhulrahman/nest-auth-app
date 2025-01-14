@@ -39,4 +39,5 @@ npm install cookie-parser
 
 //Validation
 npm install class-validator
+npm install class-transformers
 
