@@ -41,3 +41,7 @@ npm install cookie-parser
 npm install class-validator
 npm install class-transformers
 
+//Install and Configure dotenv
+npm install dotenv
+npm install --save-dev @types/dotenv
+
