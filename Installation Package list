@@ -6,6 +6,8 @@ npm install @nestjs/passport @nestjs/jwt passport-jwt bcrypt passport passport-l
 npm install --save-dev @types/passport-jwt @types/passport-local
 npm install @nestjs/typeorm typeorm mysql @nestjs/config multer
 
+
+
 //Install MySQL
 npm install mysql2
 
