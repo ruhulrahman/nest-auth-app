@@ -14,6 +14,7 @@ export class PostController {
 
   @Post()
   create(@Body() createPostDto) {
+    console.log('createPostDto', createPostDto);
     return this.postService.create(createPostDto);
   }
 

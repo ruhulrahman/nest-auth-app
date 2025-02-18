@@ -14,6 +14,9 @@ export class User {
   @Column({ nullable: true })
   profilePhoto: string;
 
+  @Column({ default: false })
+  isAdmin: boolean;
+
   @Column({ default: true })
   isActive: boolean;
 }
